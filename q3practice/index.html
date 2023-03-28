@@ -1,0 +1,326 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <div id="app"></div>
+    <div class="table-responsive">
+      <table class="table table-striped
+      table-hover	
+      table-borderless
+      table-primary
+      align-middle">
+        <thead class="table-light">
+          <caption>Table Name</caption>
+          <tr>
+            <th>status</th>
+            <th>type</th>
+            <th>days</th>
+            <th>from date</th>
+            <th>To Date</th>
+            <th>Applied on</th>
+            <th>Applied by</th>
+            <th>Handle</th>
+          </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </thead>
+          <tbody class="table-group-divider" id="tabledata">
+      
+          </tbody>
+          <tfoot>
+            
+          </tfoot>
+      </table>
+    </div>
+    
+    <script>
+     
+
+
+
+     const LeaveTypesList=[
+
+{
+
+"LeaveTypeID": 6813,
+
+"ObjectName": "Casual Leave (CL)",
+
+"Color":"Green"
+
+},
+
+{
+
+"LeaveTypeID": 6809,
+
+"ObjectName": "Comp Off (CO)",
+
+"Color":"Blue"
+
+},
+
+{
+
+"LeaveTypeID": 6812,
+
+"ObjectName": "Elective (EL)",
+
+"Color":"orange"
+
+},
+
+{
+
+"LeaveTypeID": 6811,
+
+"ObjectName": "Privilege Leave (PL)",
+
+"Color":"yellow"
+
+},
+
+{
+
+"LeaveTypeID": 6814,
+
+"ObjectName": "Sick Leave (SL)",
+
+"Color":"purple"
+
+}
+
+];
+
+ 
+
+const LeaveStatusList=[
+
+{
+
+"LeaveStatusID": 1526,
+
+"ObjectName": "Approve"
+
+},
+
+{
+
+"LeaveStatusID": 1530,
+
+"ObjectName": "Applied"
+
+},
+
+{
+
+"LeaveStatusID": 1535,
+
+"ObjectName": "Reject"
+
+}
+
+]
+
+ 
+
+const userLeaveHistory = {
+
+"EmployeeName": "Vikas",
+
+"EmpCode": 101,
+
+"LeaveHistoryList": [
+
+{
+
+"FromDate": "2023-02-15",
+
+"FromDateDay": "2023-02-15 (Wed)",
+
+"ToDate": "2023-02-15",
+
+"ToDateDay": "2023-02-15 (Wed)",
+
+"Days": 1,
+
+"LeaveTypeID": 6811,
+
+"LeaveStatusID": 1526,
+
+"AppliedByName": "Nikunj Prajapati",
+
+"AppliedOn": "2023-02-21T18:49:31.41",
+
+},
+
+{
+
+"FromDate": "2023-02-06",
+
+"FromDateDay": "2023-02-06 (Mon)",
+
+"ToDate": "2023-02-06",
+
+"ToDateDay": "2023-02-06 (Mon)",
+
+"Days": 1,
+
+"LeaveTypeID": 6812,
+
+"AppliedByName": "Nikunj Prajapati",
+
+"AppliedOn": "2023-02-09T18:42:47.937",
+
+"LeaveStatusID": 1526,
+
+},
+
+{
+
+"FromDate": "2023-02-03",
+
+"FromDateDay": "2023-02-03 (Fri)",
+
+"ToDate": "2023-02-03",
+
+"ToDateDay": "2023-02-03 (Fri)",
+
+"Days": 0.5,
+
+"LeaveTypeID": 6809,
+
+"AppliedByName": "Nikunj Prajapati",
+
+"AppliedOn": "2023-02-03T00:00:00",
+
+"LeaveStatusID": 1535,
+
+},
+
+{
+
+"FromDate": "2023-02-03",
+
+"FromDateDay": "2023-04-03 (Fri)",
+
+"ToDate": "2023-02-03",
+
+"ToDateDay": "2023-04-03 (Fri)",
+
+"Days": 0.5,
+
+"LeaveTypeID": 6814,
+
+"AppliedByName": "Nikunj Prajapati",
+
+"AppliedOn": "2023-02-03T00:00:00",
+
+"LeaveStatusID": 1530,
+
+}
+
+]
+
+}
+
+
+
+
+// console.log(LeaveTypesList);
+
+
+// console.log(LeaveStatusList);
+
+// console.log(userLeaveHistory);
+   
+
+let j= userLeaveHistory['LeaveHistoryList']
+
+for (const i in j) {
+  console.log(j[i]);
+
+let rr= `<tr>
+<td>status</td>
+<td>type</td>
+<td>${j[i]['Days']}</td>
+<td> ${j[i]['FromDate']}</td>
+<td>${j[i]['ToDateDay']}</td>
+<td>${j[i]['AppliedOn']}</td>
+<td>${j[i]['AppliedByName']}</td>
+<td>action</td>
+</tr>`
+
+console.log(rr);
+
+$(rr).appendTo('#tabledata')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script type="module" src="/main.js"></script>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
