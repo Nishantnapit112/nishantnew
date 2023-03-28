@@ -16,7 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-
 </head>
 
 <body>
@@ -42,21 +41,8 @@
             <th>Applied on</th>
             <th>Applied by</th>
             <th>Handle</th>
+            <th>Actions</th>
           </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           </thead>
           <tbody class="table-group-divider" id="tabledata">
@@ -284,28 +270,17 @@ let rr= `<tr>
 <td>${j[i]['AppliedOn']}</td>
 <td>${j[i]['AppliedByName']}</td>
 <td>action</td>
+<td>
+  
+  <a href="" class="btn btn-success">Edit</a>&emsp;<a href="" class="btn btn-danger">Delete</a>
+
+  </td>
 </tr>`
 
 console.log(rr);
 
 $(rr).appendTo('#tabledata')
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </script>
     <script type="module" src="/main.js"></script>
